@@ -10,6 +10,7 @@ h1{font-size:22px;margin:0 0 16px;text-align:center}
 font-weight:600;margin-bottom:20px}
 .banner.ok{background:#dcfce7;color:#166534}
 .banner.bad{background:#fee2e2;color:#991b1b}
+.banner.unknown{background:#e2e8f0;color:#475569}
 .card{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
 .row{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;
 border-bottom:1px solid #f1f5f9}
@@ -27,5 +28,21 @@ border-bottom:1px solid #f1f5f9}
 <h1>סטטוס מערכות</h1>
 <div class="banner ok">&#9989; כל המערכות פעילות</div>
 <div class="card"><div class="row"><span class="dot ok"></span><span class="nm"><div class="brand">Vibe Control</div><div class="desc">מערכת ניהול אג׳נטית, דיוור, קורסים, דפי נחיתה, אוטומציות</div></span><span class="st ok">פעיל</span></div><div class="row"><span class="dot ok"></span><span class="nm"><div class="brand">Vibe Pages</div><div class="desc">מערכת דפי נחיתה אג׳נטית</div></span><span class="st ok">פעיל</span></div><div class="row"><span class="dot ok"></span><span class="nm"><div class="brand">Vibe Academy</div><div class="desc">מערכת קורסים אג׳נטית</div></span><span class="st ok">פעיל</span></div><div class="row"><span class="dot ok"></span><span class="nm"><div class="brand">Red Rozi</div><div class="desc">רוזי האדומה</div></span><span class="st ok">פעיל</span></div><div class="row"><span class="dot ok"></span><span class="nm"><div class="brand">Vibe API</div></span><span class="st ok">פעיל</span></div><div class="row"><span class="dot ok"></span><span class="nm"><div class="brand">In Control</div><div class="desc">מערכת ניהול דור שני</div><div class="tag">בתהליך החלפה</div></span><span class="st ok">פעיל</span></div><div class="row"><span class="dot ok"></span><span class="nm"><div class="brand">My Pages</div><div class="desc">מערכת ניהול דור ראשון</div><div class="tag">בתהליך החלפה</div></span><span class="st ok">פעיל</span></div><div class="row"><span class="dot ok"></span><span class="nm"><div class="brand">Academy</div><div class="desc">מערכת קורסים דור ראשון</div><div class="tag">בתהליך החלפה</div></span><span class="st ok">פעיל</span></div></div>
-<div class="foot">עודכן לאחרונה: 01.09.2026 16:25 (שעון ישראל) · הדף מתרענן אוטומטית</div>
-</div></body></html>
+<div class="foot">עודכן לאחרונה: 01.09.2026 16:29 (שעון ישראל) · הדף מתרענן אוטומטית</div>
+</div>
+<script>
+// honesty guard: if this page's data is older than 15 minutes, the
+// monitor that feeds it may be down — never keep showing green.
+(function(){
+  var gen = 1788269346 * 1000;
+  function guard(){
+    if (Date.now() - gen > 15*60*1000) {
+      var b = document.querySelector(".banner");
+      if (b) { b.className = "banner unknown";
+        b.textContent = "הנתונים בדף אינם עדכניים — סטטוס לא ידוע כרגע"; }
+    }
+  }
+  guard(); setInterval(guard, 60000);
+})();
+</script>
+</body></html>
